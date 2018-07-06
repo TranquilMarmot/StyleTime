@@ -1,0 +1,17 @@
+#batteryLabel {
+  x: 50%-2;
+  y: 83;
+}
+
+#batteryIcon {
+  x: 17;
+  y: 7;
+  width: 48;
+  height: 48;
+}
+
+#batteryFill {
+  x: 18;
+  y: 19;
+  height: 25;
+}

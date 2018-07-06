@@ -1,0 +1,10 @@
+<symbol id="battery">
+  <svg class="sidebar-widget">
+    <defs>
+      <link rel="stylesheet" href="battery.css" />
+    </defs>
+    <rect id="batteryFill" />
+    <image class="sidebar-widget-element" id="batteryIcon" href="icons/battery.png" load="sync" />
+    <text class="sidebar-widget-element sidebar-widget-label" id="batteryLabel" text-length="4">75%</text>
+  </svg>
+</symbol>

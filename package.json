@@ -1,0 +1,23 @@
+{
+  "fitbit": {
+    "appUUID": "b10a7e49-82cc-4c88-b6ef-deecdb6628ae",
+    "appType": "clockface",
+    "appDisplayName": "StyleTime",
+    "iconFile": "resources/icon.png",
+    "wipeColor": "",
+    "requestedPermissions": [
+      "access_activity",
+      "access_heart_rate",
+      "access_internet",
+      "run_background"
+    ],
+    "buildTargets": [
+      "meson"
+    ],
+    "i18n": {
+      "en": {
+        "name": "StyleTime"
+      }
+    }
+  }
+}

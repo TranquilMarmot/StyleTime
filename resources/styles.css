@@ -1,0 +1,48 @@
+#mainBackground {
+  width: 100%;
+  height: 100%;
+  fill: black;
+}
+
+.time-label {
+  font-size: 170;
+  font-family: Fabrikat-Black;
+  fill: green;
+  x: 3%;
+}
+
+#hoursLabel {
+  y: 130;
+}
+
+#minutesLabel {
+  y: 50%+130;
+}
+
+.sidebar-widget {
+  height: 33%;
+  width: 100%;
+  x: 5;
+}
+
+#sidebarBackground {
+  fill: green;
+  height: 100%;
+  width: 100%;
+}
+
+#sideBar {
+  x: 200;
+  width: 100%-200;
+  height: 100%;
+}
+
+.sidebar-widget-element {
+  fill: white;
+  text-anchor: middle;
+}
+
+.sidebar-widget-label {
+  font-family: Colfax-Medium;
+  font-size: 30;
+}

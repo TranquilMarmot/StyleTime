@@ -1,0 +1,11 @@
+#heartRateLabel {
+  x: 50%-10;
+  y: 83;
+}
+
+#heartRateIcon {
+  x: 17;
+  y: 7;
+  width: 48;
+  height: 48;
+}

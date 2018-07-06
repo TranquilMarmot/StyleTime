@@ -1,0 +1,11 @@
+.weather-icon {
+  x: 21;
+  y: 3;
+  width: 48;
+  height: 48;
+}
+
+#weatherLabel {
+  x: 50%-5;
+  y: 83;
+}

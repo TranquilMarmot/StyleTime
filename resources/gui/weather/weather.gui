@@ -1,0 +1,20 @@
+<symbol id="weather">
+  <svg class="sidebar-widget">
+      <defs>
+        <link rel="stylesheet" href="weather.css" />
+      </defs>
+      <text class="sidebar-widget-element sidebar-widget-label" id="weatherLabel" text-length="4">--°</text>
+
+      <!-- Note that these are not loaded sync because not all of them are shown at once! -->
+      <image class="weather-icon sidebar-widget-element" id="weatherIcon_2xx" href="icons/weather/2xx.png" display="none" />
+      <image class="weather-icon sidebar-widget-element" id="weatherIcon_3xx" href="icons/weather/3xx.png" display="none" />
+      <image class="weather-icon sidebar-widget-element" id="weatherIcon_5xx" href="icons/weather/5xx.png" display="none" />
+      <image class="weather-icon sidebar-widget-element" id="weatherIcon_6xx" href="icons/weather/6xx.png" display="none" />
+      <image class="weather-icon sidebar-widget-element" id="weatherIcon_7xx" href="icons/weather/7xx.png" display="none" />
+      <image class="weather-icon sidebar-widget-element" id="weatherIcon_8xx" href="icons/weather/8xx.png" display="none" />
+      <image class="weather-icon sidebar-widget-element" id="weatherIcon_9xx" href="icons/weather/9xx.png" display="none" />
+
+      <!-- This is our "default" icon for when weather is being fetched -->
+      <image class="weather-icon sidebar-widget-element" id="weatherIcon_800" href="icons/weather/800.png" load="sync" />
+  </svg>
+</symbol>

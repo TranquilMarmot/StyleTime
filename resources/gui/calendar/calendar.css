@@ -1,0 +1,30 @@
+#calendar-icon {
+  x: 4;
+}
+
+#calendarDayOfWeekLabel {
+  font-size: 25;
+  font-family: Colfax-Medium;
+  x: 50%-8;
+  y: 85%;
+}
+
+#calendarMonthLabel {
+  font-size: 15;
+  font-family: Seville-Book-Condensed;
+  x: 50%-7;
+  y: 25%;
+}
+
+#calendarDayOfMonthLabel {
+  font-size: 30;
+  font-family: Colfax-Medium;
+  x: 50%-7;
+  y: 55;
+}
+
+.calendar-outline-curve {
+  width: 15;
+  height: 15;
+  arc-width: 2;
+}

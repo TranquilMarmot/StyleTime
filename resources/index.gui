@@ -1,0 +1,20 @@
+<svg id="main" pointer-events="visible">
+  <rect id="mainBackground" />
+  <text id="hoursLabel" class="time-label" />
+  <text id="minutesLabel" class="time-label" />
+
+  <svg id="sideBar">
+    <rect id="sidebarBackground" />
+    <svg id="sidebar-1">
+      <use href="#calendar" />
+      <use href="#weather" y="33%" />
+      <use href="#steps" y="66%" />
+    </svg>
+    
+    <svg id="sidebar-2" display="none">
+      <use href="#heartRate" />
+      <use href="#floors" y="33%" />
+      <use href="#battery" y="66%" />
+    </svg>
+  </svg>
+</svg>

@@ -1,0 +1,3 @@
+# since there's no REAL way to do environment variables or anything with the Fitbit SDK
+# we have to export them from a JS file and ignore it
+common/secrets.js

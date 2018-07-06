@@ -1,0 +1,71 @@
+<symbol id="calendar">
+  <svg class="sidebar-widget">
+      <defs>
+        <link rel="stylesheet" href="calendar.css" />
+      </defs>
+      <svg id="calendar-icon">
+        <line id="calendar-outline-left-line sidebar-widget-element"
+              class="sidebar-widget-element"
+              x1="15"
+              y1="15"
+              x2="15"
+              y2="55"
+              stroke-width="2" />
+        <arc id="calendar-outline-bottom-left-curve"
+             class="calendar-outline-curve sidebar-widget-element"
+             x="14"
+             y="47"
+             start-angle="180"
+             sweep-angle="90" />
+        <line id="calendar-outline-bottom-line"
+              class="sidebar-widget-element"
+              x1="19"
+              y1="61"
+              x2="60"
+              y2="61"
+              stroke-width="2" />
+        <arc id="calendar-outline-bottom-right-curve"
+             class="calendar-outline-curve sidebar-widget-element"
+             x="50"
+             y="47"
+             start-angle="90"
+             sweep-angle="90" />
+        <line id="calendar-outline-right-line"
+              class="sidebar-widget-element"
+              x1="64"
+              y1="15"
+              x2="64"
+              y2="55"
+              stroke-width="2" />
+        <arc id="calendar-outline-top-right-curve"
+             class="calendar-outline-curve sidebar-widget-element"
+             x="50"
+             y="10"
+             start-angle="0"
+             sweep-angle="90" />
+        <line id="calendar-outline-top-line"
+              class="sidebar-widget-element"
+              x1="19"
+              y1="11"
+              x2="58"
+              y2="11"
+              stroke-width="2" />
+        <arc id="calendar-outline-top-left-curve"
+             class="calendar-outline-curve sidebar-widget-element"
+             x="14"
+             y="10"
+             start-angle="270"
+             sweep-angle="90" />
+        <line id="calendar-outline-separator"
+              class="sidebar-widget-element"
+              x1="15"
+              y1="28"
+              x2="63"
+              y2="28"
+              stroke-width="2" />
+      </svg>
+      <text class="sidebar-widget-element" id="calendarDayOfWeekLabel" />
+      <text class="sidebar-widget-element" id="calendarMonthLabel" />
+      <text class="sidebar-widget-element" id="calendarDayOfMonthLabel" />
+    </svg>
+</symbol>

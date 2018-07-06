@@ -1,0 +1,9 @@
+<symbol id="steps">
+  <svg class="sidebar-widget">
+      <defs>
+        <link rel="stylesheet" href="steps.css" />
+      </defs>
+      <image class="sidebar-widget-element" id="stepsIcon" href="icons/stat_steps_open_48px.png" load="sync" />
+      <text class="sidebar-widget-element sidebar-widget-label" id="stepsLabel" text-length="4" />
+  </svg>
+</symbol>
