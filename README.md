@@ -7,10 +7,11 @@ The sidebar will display the date, weather, and steps. When the watch is tapped,
 ![](readme-images/screenshot-1.png)
 ![](readme-images/screenshot-2.png)
 ![](readme-images/screenshot-3.png)
+![](readme-images/screenshot-3.png)
 
 ## Developing
 
-Unfortunately, Fitbit does not offer any sort of CLI for building watchfaces or application (although is is listed on their [Fitbit OS Roadmap](https://dev.fitbit.com/build/roadmap/)). As such, if you want to develop this you have to open up [Fitbit Studio](https://studio.fitbit.com/) and _recreate the project one file at a time_, then copy/paste the code in. You _might_ be able to just drag all the folders in if Fitbit Studio supports that.
+Unfortunately, Fitbit does not offer any sort of CLI for building watchfaces or application (although is is listed on their [Fitbit OS Roadmap](https://dev.fitbit.com/build/roadmap/)). As such, if you want to develop this you have to open up [Fitbit Studio](https://studio.fitbit.com/) and recreate the project. To import it, open the project folder in your OS file browser, select all the files, and then drag them into Fitbit Studio in your browser.
 
 For more info on how Fitbit's libraries work, check out https://dev.fitbit.com/
 
