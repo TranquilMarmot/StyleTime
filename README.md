@@ -7,13 +7,26 @@ The sidebar will display the date, weather, and steps. When the watch is tapped,
 ![](readme-images/screenshot-1.png)
 ![](readme-images/screenshot-2.png)
 ![](readme-images/screenshot-3.png)
-![](readme-images/screenshot-3.png)
+![](readme-images/screenshot-4.png)
 
 ## Developing
 
-Unfortunately, Fitbit does not offer any sort of CLI for building watchfaces or application (although is is listed on their [Fitbit OS Roadmap](https://dev.fitbit.com/build/roadmap/)). As such, if you want to develop this you have to open up [Fitbit Studio](https://studio.fitbit.com/) and recreate the project. To import it, open the project folder in your OS file browser, select all the files, and then drag them into Fitbit Studio in your browser.
+Unfortunately, Fitbit does not offer any sort of CLI for building watchfaces or application (although is is listed on their [Fitbit OS Roadmap](https://dev.fitbit.com/build/roadmap/)). As such, if you want to develop this you have to open up [Fitbit Studio](https://studio.fitbit.com/) and re-create the project.
 
-For more info on how Fitbit's libraries work, check out https://dev.fitbit.com/
+To import the project into Fitbit Studio, open the project folder in your OS file browser, select all the files (EXCEPT `node_modules` and `.git`), and then drag them into Fitbit Studio in your browser. To keep things in sync with git, drag all the files in again and overwrite the old ones.
+
+For more info on Fitbit's libraries, check out https://dev.fitbit.com/
+
+### Lint
+
+To lint the entire project, run `npm install` followed by:
+```sh
+npm run lint
+```
+
+If there are no lint errors, nothing will be printed out.
+
+Lint rules are based off of [Airbnb's eslint rules](https://github.com/airbnb/javascript) with some modifications to meet the project's requirements.
 
 ### Project layout
 
@@ -42,7 +55,7 @@ In `resources/gui` there is a folder for each "widget" on the watchface; there i
 ### Secrets
 There is also no support or best practices for secrets since there aren't any environment variables or anything. As such, there is a file `common/secrets.js` that has all the secrets needed by the application. This file is not checked into source control.
 
-At the minimum, this file should contain:
+At a minimum, this file should contain:
 
 ```js
 export const getOpenWeatherMapApiKey = () => 'YOUR_OPENWEATHERMAP_KEY';

@@ -34,14 +34,14 @@ clock.ontick = (evt) => {
   updateFloors();
   updateBattery();
   readHeartRate();
-}
+};
 
 main.onclick = () => {
   // on "click" swap the sidebar display
   vibration.start('bump');
   currentSidebar.style.display = 'none';
-  currentSidebar = currentSidebar === sidebar1 ? sidebar2 : sidebar1;  
+  currentSidebar = currentSidebar === sidebar1 ? sidebar2 : sidebar1;
   currentSidebar.style.display = 'inline';
-}
+};
 
 initMessaging();

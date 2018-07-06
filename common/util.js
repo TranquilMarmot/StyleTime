@@ -7,4 +7,4 @@ export const sendToPeerSocket = (data) => {
   } else {
     console.error(`Peer Socket Connection is not open (readyState: ${messaging.peerSocket.readyState})`);
   }
-}
+};

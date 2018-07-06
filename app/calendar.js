@@ -23,10 +23,10 @@ const getDayOfWeekString = (date) => {
     default:
       return '???';
   }
-}
+};
 
 const getMonthString = (date) => {
-  switch(date.getMonth()) {
+  switch (date.getMonth()) {
     case 0:
       return 'Jan';
     case 1:
@@ -56,10 +56,10 @@ const getMonthString = (date) => {
     default:
       return '???';
   }
-}
+};
 
 export const updateCalendar = (currentDate) => {
   calendarDayOfWeekLabel.text = getDayOfWeekString(currentDate);
   calendarMonthLabel.text = getMonthString(currentDate);
   calendarDayOfMonthLabel.text = currentDate.getDate();
-}
+};

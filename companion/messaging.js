@@ -15,18 +15,18 @@ export const initMessaging = () => {
           queryOpenWeatherMap(sendToPeerSocket, data.zipCode);
           break;
         default:
-          console.log(`Unknown command: ${evt.data.command}`);
+          console.log(`Unknown command: ${data.command}`);
           break;
       }
     }
-  }
+  };
 
-  messaging.peerSocket.onopen = () => { 
+  messaging.peerSocket.onopen = () => {
     // restore settings from settings storage (on phone)
     restoreSettings();
   };
 
   messaging.peerSocket.onerror = (err) => {
     console.error(`Connection error: ${err.code} - ${err.message}`);
-  } 
-}
+  };
+};

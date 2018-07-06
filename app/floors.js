@@ -5,4 +5,4 @@ const floorsLabel = document.getElementById('floorsLabel');
 
 export const updateFloors = () => {
   floorsLabel.text = today.local.elevationGain || 0;
-}
+};

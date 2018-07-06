@@ -22,9 +22,9 @@ export const initMessaging = () => {
           break;
       }
     }
-  }
-  
+  };
+
   messaging.peerSocket.onerror = (err) => {
     console.error(`Peer Socket Connection error: ${err.code} - ${err.message}`);
-  }
-}
+  };
+};
