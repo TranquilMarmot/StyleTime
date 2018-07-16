@@ -21,7 +21,9 @@ const onWeatherZipCodeSettingChanged = (newValue) => {
     // fetch weather every hour
     weatherIntervalId = setInterval(
       () => { requestWeatherFromCompanion(weatherZipCode); },
-      30 * 1000 * 60
+      30 // minutes
+      * 60 // seconds
+      * 1000 // milliseconds
     );
   }
 };

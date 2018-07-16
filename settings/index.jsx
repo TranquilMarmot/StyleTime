@@ -205,7 +205,7 @@ registerSettingsPage(() => (
       </Text>
       <Text>
         A: Steps, heart rate, floors, and battery level all update every minute along with the time.
-        Weather is updated every hour. A future update will allow setting these individually but
+        Weather is updated every half an hour. A future update will allow setting these individually but
         right now they are only updated every minute to save battery.
       </Text>
       <Text bold>
@@ -223,7 +223,9 @@ registerSettingsPage(() => (
       <Text>
         A: This is most likely because you didn&apos;t enter a &quot;Weather Zip Code&quot; in the
         settings for the watchface, or you entered an invalid zip code. It&apos;s also possible that
-        OpenWeatherMap, which is used to fetch the weather, is not responding.
+        OpenWeatherMap, which is used to fetch the weather, is not responding. Sometimes the
+        clockface needs to be restarted; the quickest way to do this is to swipe up to see your steps
+        for the day then go back to the clockface. This should trigger another fetch of the weather.
       </Text>
       <Text bold>
         Q: I want more colors to choose from!
