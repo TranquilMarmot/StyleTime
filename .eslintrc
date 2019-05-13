@@ -1,19 +1,19 @@
 {
-    "env": {
-        "node": true
-    },
-    "extends": "airbnb",
-    "rules": {
-        "import/no-unresolved": "off",
-        "import/prefer-default-export": "off",
-        "no-console": "off",
-        "comma-dangle": "off",
-        "react/react-in-jsx-scope": "off",
-        "react/jsx-no-undef": "off",
-        "jsx-a11y/anchor-is-valid": "off"
-    },
-    "globals": {
-        "fetch": true,
-        "registerSettingsPage": true
-    }
+  "env": {
+    "node": true
+  },
+  "extends": ["airbnb", "prettier"],
+  "rules": {
+    "import/no-unresolved": "off",
+    "import/prefer-default-export": "off",
+    "no-console": "off",
+    "comma-dangle": "off",
+    "react/react-in-jsx-scope": "off",
+    "react/jsx-no-undef": "off",
+    "jsx-a11y/anchor-is-valid": "off"
+  },
+  "globals": {
+    "fetch": true,
+    "registerSettingsPage": true
+  }
 }

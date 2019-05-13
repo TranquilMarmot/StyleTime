@@ -3,7 +3,7 @@ import { today } from 'user-activity';
 
 const stepsLabel = document.getElementById('stepsLabel');
 
-const stepsToString = (steps) => {
+const stepsToString = steps => {
   if (steps < 1000) {
     return `${steps}`;
   }

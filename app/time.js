@@ -5,7 +5,7 @@ const hoursLabel = document.getElementById('hoursLabel');
 const minutesLabel = document.getElementById('minutesLabel');
 
 // Add a zero in front of a number if it's less than 10
-const zeroPad = (number) => {
+const zeroPad = number => {
   let padded = number;
 
   if (padded < 10) {
@@ -15,7 +15,7 @@ const zeroPad = (number) => {
   return padded;
 };
 
-export const updateTime = (currentDate) => {
+export const updateTime = currentDate => {
   const hours = currentDate.getHours();
   if (preferences.clockDisplay === '12h') {
     // 12h format

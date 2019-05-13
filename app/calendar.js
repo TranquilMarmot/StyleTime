@@ -7,7 +7,7 @@ const calendarDayOfMonthLabel = document.getElementById('calendarDayOfMonthLabel
 const getDayOfWeekString = (date) => {
   switch (date.getDay()) {
     case 0:
-      return 'Sun';
+      return 'Sun'; 
     case 1:
       return 'Mon';
     case 2:

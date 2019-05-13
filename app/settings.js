@@ -4,7 +4,7 @@ import { requestWeatherFromCompanion } from './weather';
 
 let weatherIntervalId = null;
 
-const onWeatherZipCodeSettingChanged = (newValue) => {
+const onWeatherZipCodeSettingChanged = newValue => {
   // parse the new value then request another fetch from the API with it
   const weatherZipCode = JSON.parse(newValue).name.replace(/"/g, '');
 
@@ -20,10 +20,12 @@ const onWeatherZipCodeSettingChanged = (newValue) => {
 
     // fetch weather every hour
     weatherIntervalId = setInterval(
-      () => { requestWeatherFromCompanion(weatherZipCode); },
-      30 // minutes
-      * 60 // seconds
-      * 1000 // milliseconds
+      () => {
+        requestWeatherFromCompanion(weatherZipCode);
+      },
+      30 * // minutes
+      60 * // seconds
+        1000 // milliseconds
     );
   }
 };
@@ -34,19 +36,34 @@ const onWeatherZipCodeSettingChanged = (newValue) => {
 export const onSettingChanged = ({ key, newValue }) => {
   switch (key) {
     case 'backgroundColor':
-      document.getElementById('mainBackground').style.fill = newValue.replace(/"/g, '');
+      document.getElementById('mainBackground').style.fill = newValue.replace(
+        /"/g,
+        ''
+      );
       break;
     case 'hoursColor':
-      document.getElementById('hoursLabel').style.fill = newValue.replace(/"/g, '');
+      document.getElementById('hoursLabel').style.fill = newValue.replace(
+        /"/g,
+        ''
+      );
       break;
     case 'minutesColor':
-      document.getElementById('minutesLabel').style.fill = newValue.replace(/"/g, '');
+      document.getElementById('minutesLabel').style.fill = newValue.replace(
+        /"/g,
+        ''
+      );
       break;
     case 'sidebarColor':
-      document.getElementById('sidebarBackground').style.fill = newValue.replace(/"/g, '');
+      document.getElementById(
+        'sidebarBackground'
+      ).style.fill = newValue.replace(/"/g, '');
       break;
     case 'sidebarWidgetColor':
-      document.getElementsByClassName('sidebar-widget-element').forEach((element) => { element.style.fill = newValue.replace(/"/g, ''); }); // eslint-disable-line no-param-reassign
+      document
+        .getElementsByClassName('sidebar-widget-element')
+        .forEach(element => {
+          element.style.fill = newValue.replace(/"/g, ''); // eslint-disable-line no-param-reassign
+        });
       break;
     case 'weatherZipCode':
       onWeatherZipCodeSettingChanged(newValue);

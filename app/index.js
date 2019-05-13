@@ -26,7 +26,7 @@ TODO
 
 // update everything every minute
 clock.granularity = 'minutes';
-clock.ontick = (evt) => {
+clock.ontick = evt => {
   const currentDate = evt.date;
   updateTime(currentDate);
   updateCalendar(currentDate);

@@ -62,7 +62,7 @@ function rgbToHex(color) {
   return `#${(0x1000000 + rgb).toString(16).slice(1)}`;
 }
 
-const getHexFillColor = (percent) => {
+const getHexFillColor = percent => {
   // in hsv, hue of 0 is red and 120 is green
   // hue is out of 360, though, so we need to multiply by 360
   // percent / 100 because it needs to be between 0 and 1

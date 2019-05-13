@@ -10,7 +10,7 @@ let currentWeatherIconId = 'weatherIcon_800';
 
 // Request weather data from the companion
 // This is set in a timeout in settings.js when the zip code setting is read
-export const requestWeatherFromCompanion = (zipCode) => {
+export const requestWeatherFromCompanion = zipCode => {
   weatherLabel.text = '--°';
 
   sendToPeerSocket({
@@ -19,7 +19,7 @@ export const requestWeatherFromCompanion = (zipCode) => {
   });
 };
 
-const getIconIdFromWeatherId = (weatherId) => {
+const getIconIdFromWeatherId = weatherId => {
   // see https://openweathermap.org/weather-conditions for a list of weather codes
   if (weatherId === 800) {
     // 800 is a special code for "clear"; everything else is just in a group
@@ -30,7 +30,7 @@ const getIconIdFromWeatherId = (weatherId) => {
   return `weatherIcon_${weatherIdGroup}xx`;
 };
 
-export const onWeatherFetchSuccess = (data) => {
+export const onWeatherFetchSuccess = data => {
   // round temperature up to a whole number
   const roundedTemperature = Math.floor(Math.round(data.temperature, 1));
   weatherLabel.text = `${roundedTemperature}°`;

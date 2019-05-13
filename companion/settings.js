@@ -14,7 +14,7 @@ const sendSettingChangedEvent = (key, newValue) => {
 
 // listen to changes coming from the app
 export const initSettings = () => {
-  settingsStorage.onchange = (evt) => {
+  settingsStorage.onchange = evt => {
     const { key, newValue } = evt;
     sendSettingChangedEvent(key, newValue);
   };
