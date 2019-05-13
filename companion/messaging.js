@@ -12,7 +12,7 @@ export const initMessaging = () => {
     if (data && data.command) {
       switch (data.command) {
         case FETCH_WEATHER:
-          queryOpenWeatherMap(sendToPeerSocket, data.zipCode);
+          queryOpenWeatherMap(sendToPeerSocket, data);
           break;
         default:
           console.log(`Unknown command: ${data.command}`);

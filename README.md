@@ -63,6 +63,8 @@ fitbit$ install
 
 This will open a browser that will have you login to Fitbit; make sure you login to the same account here as on you simulator/phone because the CLI will use the account to install the app.
 
+Note that `build` must be run any time that changes are made.
+
 ### Lint
 
 #### ESLint

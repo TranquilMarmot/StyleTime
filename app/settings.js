@@ -2,32 +2,82 @@ import document from 'document';
 
 import { requestWeatherFromCompanion } from './weather';
 
+let weatherZipCode = null;
+let weatherCountryCode = null;
+let weatherUnits = null;
 let weatherIntervalId = null;
 
-const onWeatherZipCodeSettingChanged = newValue => {
-  // parse the new value then request another fetch from the API with it
-  const weatherZipCode = JSON.parse(newValue).name.replace(/"/g, '');
-
-  // if we already have an interval, clear it
+const clearWeatherInterval = () => {
   if (weatherIntervalId) {
     clearInterval(weatherIntervalId);
     weatherIntervalId = null;
   }
+};
+
+const requestWeatherAndSetInterval = () => {
+  requestWeatherFromCompanion(weatherZipCode, weatherCountryCode, weatherUnits);
+
+  weatherIntervalId = setInterval(
+    () => {
+      requestWeatherFromCompanion(
+        weatherZipCode,
+        weatherCountryCode,
+        weatherUnits
+      );
+    },
+    30 * // minutes
+    60 * // seconds
+      1000 // milliseconds
+  );
+};
+
+const onWeatherZipCodeSettingChanged = newValue => {
+  // parse the new value then request another fetch from the API with it
+  weatherZipCode = JSON.parse(newValue).name.replace(/"/g, '');
+
+  // if we already have an interval, clear it
+  clearWeatherInterval();
 
   // if we've been given a zip code, request the weather and then set an interval
   if (weatherZipCode && weatherZipCode !== '') {
-    requestWeatherFromCompanion(weatherZipCode);
-
-    // fetch weather every hour
-    weatherIntervalId = setInterval(
-      () => {
-        requestWeatherFromCompanion(weatherZipCode);
-      },
-      30 * // minutes
-      60 * // seconds
-        1000 // milliseconds
-    );
+    requestWeatherAndSetInterval();
   }
+};
+
+const onWeatherCountryCodeSettingChanged = newValue => {
+  // parse the new value then request another fetch from the API with it
+  weatherCountryCode = JSON.parse(newValue).name.replace(/"/g, '');
+
+  // if we already have an interval, clear it
+  clearWeatherInterval();
+
+  // if we've been given a zip code, request the weather and then set an interval
+  if (weatherCountryCode && weatherCountryCode !== '') {
+    requestWeatherAndSetInterval();
+  }
+};
+
+const onWeatherUnitsSettingChanged = newValue => {
+  // parse the new value then request another fetch from the API with it
+  weatherUnits = JSON.parse(newValue).values[0].value.replace(/"/g, '');
+
+  // if we already have an interval, clear it
+  clearWeatherInterval();
+
+  // if we've been given a zip code, request the weather and then set an interval
+  if (weatherUnits && weatherUnits !== '') {
+    requestWeatherAndSetInterval();
+  }
+};
+
+const setElementIdStyleFill = (elementId, fill) => {
+  document.getElementById(elementId).style.fill = fill.replace(/"/g, '');
+};
+
+const setElementClassNameStyleFill = (className, fill) => {
+  document.getElementsByClassName(className).forEach(element => {
+    element.style.fill = fill.replace(/"/g, ''); // eslint-disable-line no-param-reassign
+  });
 };
 
 // Called whenever a SETTING_CHANGED event gets sent
@@ -36,37 +86,28 @@ const onWeatherZipCodeSettingChanged = newValue => {
 export const onSettingChanged = ({ key, newValue }) => {
   switch (key) {
     case 'backgroundColor':
-      document.getElementById('mainBackground').style.fill = newValue.replace(
-        /"/g,
-        ''
-      );
+      setElementIdStyleFill('mainBackground', newValue);
       break;
     case 'hoursColor':
-      document.getElementById('hoursLabel').style.fill = newValue.replace(
-        /"/g,
-        ''
-      );
+      setElementIdStyleFill('hoursLabel', newValue);
       break;
     case 'minutesColor':
-      document.getElementById('minutesLabel').style.fill = newValue.replace(
-        /"/g,
-        ''
-      );
+      setElementIdStyleFill('minutesLabel', newValue);
       break;
     case 'sidebarColor':
-      document.getElementById(
-        'sidebarBackground'
-      ).style.fill = newValue.replace(/"/g, '');
+      setElementIdStyleFill('sidebarBackground', newValue);
       break;
     case 'sidebarWidgetColor':
-      document
-        .getElementsByClassName('sidebar-widget-element')
-        .forEach(element => {
-          element.style.fill = newValue.replace(/"/g, ''); // eslint-disable-line no-param-reassign
-        });
+      setElementClassNameStyleFill('sidebar-widget-element', newValue);
       break;
     case 'weatherZipCode':
       onWeatherZipCodeSettingChanged(newValue);
+      break;
+    case 'weatherCountryCode':
+      onWeatherCountryCodeSettingChanged(newValue);
+      break;
+    case 'weatherUnits':
+      onWeatherUnitsSettingChanged(newValue);
       break;
     default:
       console.warn(`Unknown setting for ${key} with value ${newValue}`);

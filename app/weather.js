@@ -10,12 +10,14 @@ let currentWeatherIconId = 'weatherIcon_800';
 
 // Request weather data from the companion
 // This is set in a timeout in settings.js when the zip code setting is read
-export const requestWeatherFromCompanion = zipCode => {
+export const requestWeatherFromCompanion = (zipCode, countryCode, units) => {
   weatherLabel.text = '--°';
 
   sendToPeerSocket({
     command: FETCH_WEATHER,
-    zipCode
+    zipCode,
+    countryCode,
+    units
   });
 };
 

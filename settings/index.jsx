@@ -3,10 +3,25 @@ registerSettingsPage(() => (
     <Text bold align="center">
       StyleTime Settings
     </Text>
-    <TextInput
-      settingsKey="weatherZipCode"
-      label="Weather Zip Code (REQUIRED)"
-    />
+    <Section title="Weather">
+      <TextInput settingsKey="weatherZipCode" label="Postal Code (REQUIRED)" />
+      <TextInput
+        settingsKey="weatherCountryCode"
+        label="Country Code (i.e. gb, es, or any other ISO 3166 code; Default: us)"
+      />
+      <Select
+        selectViewTitle="Select Weather Units"
+        label="Units (Default: °F)"
+        settingsKey="weatherUnits"
+        options={[
+          {
+            name: '°F',
+            value: 'imperial'
+          },
+          { name: '°C', value: 'metric' }
+        ]}
+      />
+    </Section>
     <Section title={<Text>Background Color</Text>}>
       <ColorSelect
         settingsKey="backgroundColor"
@@ -183,13 +198,13 @@ registerSettingsPage(() => (
       </Text>
       <Text bold>Q: I only see a &quot;--&quot; for my weather!</Text>
       <Text>
-        A: This is most likely because you didn&apos;t enter a &quot;Weather Zip
-        Code&quot; in the settings for the watchface, or you entered an invalid
-        zip code. It&apos;s also possible that OpenWeatherMap, which is used to
-        fetch the weather, is not responding. Sometimes the clockface needs to
-        be restarted; the quickest way to do this is to swipe up to see your
-        steps for the day then go back to the clockface. This should trigger
-        another fetch of the weather.
+        A: This is most likely because you didn&apos;t enter a valid
+        &quot;Postal Code&quot; and &quot;Country Code&quot; in the settings for
+        the watchface. It&apos;s also possible that OpenWeatherMap, which is
+        used to fetch the weather, is not responding. Sometimes the clockface
+        needs to be restarted; the quickest way to do this is to swipe up to see
+        your steps for the day then go back to the clockface. This should
+        trigger another fetch of the weather.
       </Text>
       <Text bold>Q: I want more colors to choose from!</Text>
       <Text>

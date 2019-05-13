@@ -8,9 +8,7 @@ const getOpenWeatherMapUrl = (zipCode, countryCode, units) =>
 
 export const queryOpenWeatherMap = async (
   callback,
-  zipCode,
-  countryCode,
-  units
+  { zipCode, countryCode, units }
 ) => {
   try {
     const result = await fetch(
