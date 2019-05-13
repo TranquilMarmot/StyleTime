@@ -52,15 +52,20 @@ This `fba` file is what is used to install the app on the watch and to publish t
 
 ### Installing the watchface
 
+For ease of development, the [Fitbit OS Simulator](https://dev.fitbit.com/release-notes/fitbit-os-simulator/) can be used.
+
 While in Fitbit's CLI, run:
 
 ```sh
+fitbit$ build
 fitbit$ install
 ```
 
 This will open a browser that will have you login to Fitbit; make sure you login to the same account here as on you simulator/phone because the CLI will use the account to install the app.
 
 ### Lint
+
+#### ESLint
 
 To lint the entire project, run:
 
@@ -71,6 +76,18 @@ npm run lint
 If there are no lint errors, nothing will be printed out.
 
 Lint rules are based off of [Airbnb's eslint rules](https://github.com/airbnb/javascript) with some modifications to meet the project's requirements.
+
+#### Prettier
+
+[Prettier](https://prettier.io/) is used on all files in the project.
+
+To manually run prettier on the entire project, run:
+
+```sh
+npm run prettier
+```
+
+_NOTE:_ This will overwrite files with changes.
 
 ### More Resources
 
@@ -114,7 +131,7 @@ At a minimum, this file should contain:
 
 ```js
 // common/secrets.js
-export const getOpenWeatherMapApiKey = () => "YOUR_OPENWEATHERMAP_KEY";
+export const getOpenWeatherMapApiKey = () => 'YOUR_OPENWEATHERMAP_KEY';
 ```
 
 ### Message Passing

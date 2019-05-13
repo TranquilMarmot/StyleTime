@@ -34,8 +34,8 @@
     }
   },
   "devDependencies": {
-    "@fitbit/sdk": "~1.0.0",
-    "@fitbit/sdk-cli": "^1.0.0",
+    "@fitbit/sdk": "~3.1.0",
+    "@fitbit/sdk-cli": "^1.6.0",
     "eslint": "^5.3.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-config-prettier": "^4.2.0",
@@ -45,6 +45,7 @@
   },
   "scripts": {
     "lint": "eslint .",
+    "prettier": "prettier \"**/*.js\" --write",
     "build": "fitbit-build",
     "fitbit": "npx fitbit"
   }

@@ -1,13 +1,17 @@
 import document from 'document';
 
-const calendarDayOfWeekLabel = document.getElementById('calendarDayOfWeekLabel');
+const calendarDayOfWeekLabel = document.getElementById(
+  'calendarDayOfWeekLabel'
+);
 const calendarMonthLabel = document.getElementById('calendarMonthLabel');
-const calendarDayOfMonthLabel = document.getElementById('calendarDayOfMonthLabel');
+const calendarDayOfMonthLabel = document.getElementById(
+  'calendarDayOfMonthLabel'
+);
 
-const getDayOfWeekString = (date) => {
+const getDayOfWeekString = date => {
   switch (date.getDay()) {
     case 0:
-      return 'Sun'; 
+      return 'Sun';
     case 1:
       return 'Mon';
     case 2:
@@ -25,7 +29,7 @@ const getDayOfWeekString = (date) => {
   }
 };
 
-const getMonthString = (date) => {
+const getMonthString = date => {
   switch (date.getMonth()) {
     case 0:
       return 'Jan';
@@ -58,7 +62,7 @@ const getMonthString = (date) => {
   }
 };
 
-export const updateCalendar = (currentDate) => {
+export const updateCalendar = currentDate => {
   calendarDayOfWeekLabel.text = getDayOfWeekString(currentDate);
   calendarMonthLabel.text = getMonthString(currentDate);
   calendarDayOfMonthLabel.text = currentDate.getDate();
