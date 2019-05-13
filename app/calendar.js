@@ -8,6 +8,10 @@ const calendarDayOfMonthLabel = document.getElementById(
   'calendarDayOfMonthLabel'
 );
 
+/**
+ * Given a date, returns an English string for the day of the week
+ * @param {Date} date
+ */
 const getDayOfWeekString = date => {
   switch (date.getDay()) {
     case 0:
@@ -29,6 +33,10 @@ const getDayOfWeekString = date => {
   }
 };
 
+/**
+ * Given a date, returns an English string for the month of the year
+ * @param {Date} date
+ */
 const getMonthString = date => {
   switch (date.getMonth()) {
     case 0:

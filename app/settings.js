@@ -1,12 +1,17 @@
 import document from 'document';
 
 import { requestWeatherFromCompanion } from './weather';
+import * as settings from '../common/settings';
 
 let weatherZipCode = null;
 let weatherCountryCode = null;
 let weatherUnits = null;
 let weatherIntervalId = null;
 
+/**
+ * If there is a current weather fetching interval,
+ * this will clear it out.
+ */
 const clearWeatherInterval = () => {
   if (weatherIntervalId) {
     clearInterval(weatherIntervalId);
@@ -14,6 +19,10 @@ const clearWeatherInterval = () => {
   }
 };
 
+/**
+ * Tell the companion app to fetch the weather using the current settings.
+ * Note that defaults are set in the companion app if any of these are null or undefined.
+ */
 const requestWeatherAndSetInterval = () => {
   requestWeatherFromCompanion(weatherZipCode, weatherCountryCode, weatherUnits);
 
@@ -31,6 +40,10 @@ const requestWeatherAndSetInterval = () => {
   );
 };
 
+/**
+ * Called when the user changes their zip code
+ * @param {string} newValue JSON string with new value
+ */
 const onWeatherZipCodeSettingChanged = newValue => {
   // parse the new value then request another fetch from the API with it
   weatherZipCode = JSON.parse(newValue).name.replace(/"/g, '');
@@ -44,6 +57,10 @@ const onWeatherZipCodeSettingChanged = newValue => {
   }
 };
 
+/**
+ * Called when the user changes their country code
+ * @param {string} newValue JSON string with new value
+ */
 const onWeatherCountryCodeSettingChanged = newValue => {
   // parse the new value then request another fetch from the API with it
   weatherCountryCode = JSON.parse(newValue).name.replace(/"/g, '');
@@ -51,12 +68,16 @@ const onWeatherCountryCodeSettingChanged = newValue => {
   // if we already have an interval, clear it
   clearWeatherInterval();
 
-  // if we've been given a zip code, request the weather and then set an interval
+  // if we've been given a country code, request the weather and then set an interval
   if (weatherCountryCode && weatherCountryCode !== '') {
     requestWeatherAndSetInterval();
   }
 };
 
+/**
+ * Called when the user changes their weather units.
+ * @param {string} newValue JSON string with new value
+ */
 const onWeatherUnitsSettingChanged = newValue => {
   // parse the new value then request another fetch from the API with it
   weatherUnits = JSON.parse(newValue).values[0].value.replace(/"/g, '');
@@ -70,10 +91,20 @@ const onWeatherUnitsSettingChanged = newValue => {
   }
 };
 
+/**
+ * Set the fill color for a given element
+ * @param {string} elementId Element ID to set fill for
+ * @param {string} fill Fill color to set
+ */
 const setElementIdStyleFill = (elementId, fill) => {
   document.getElementById(elementId).style.fill = fill.replace(/"/g, '');
 };
 
+/**
+ * Set the fill color for every element with the given class.
+ * @param {string} className Class to set fill for
+ * @param {string} fill Fill color to set
+ */
 const setElementClassNameStyleFill = (className, fill) => {
   document.getElementsByClassName(className).forEach(element => {
     element.style.fill = fill.replace(/"/g, ''); // eslint-disable-line no-param-reassign
@@ -85,28 +116,28 @@ const setElementClassNameStyleFill = (className, fill) => {
 // will go through here which will set all the colors etc.
 export const onSettingChanged = ({ key, newValue }) => {
   switch (key) {
-    case 'backgroundColor':
+    case settings.BACKGROUND_COLOR:
       setElementIdStyleFill('mainBackground', newValue);
       break;
-    case 'hoursColor':
+    case settings.HOURS_COLOR:
       setElementIdStyleFill('hoursLabel', newValue);
       break;
-    case 'minutesColor':
+    case settings.MINUTES_COLOR:
       setElementIdStyleFill('minutesLabel', newValue);
       break;
-    case 'sidebarColor':
+    case settings.SIDEBAR_COLOR:
       setElementIdStyleFill('sidebarBackground', newValue);
       break;
-    case 'sidebarWidgetColor':
+    case settings.SIDEBAR_WIDGET_COLOR:
       setElementClassNameStyleFill('sidebar-widget-element', newValue);
       break;
-    case 'weatherZipCode':
+    case settings.WEATHER_ZIP_CODE:
       onWeatherZipCodeSettingChanged(newValue);
       break;
-    case 'weatherCountryCode':
+    case settings.WEATHER_COUNTRY_CODE:
       onWeatherCountryCodeSettingChanged(newValue);
       break;
-    case 'weatherUnits':
+    case settings.WEATHER_UNITS:
       onWeatherUnitsSettingChanged(newValue);
       break;
     default:

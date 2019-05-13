@@ -4,6 +4,7 @@ import { battery } from 'power';
 const batteryLabel = document.getElementById('batteryLabel');
 const batteryFill = document.getElementById('batteryFill');
 
+// how wide the inside of the battery is
 const maxBatteryFillWidth = 40;
 
 // Thanks Michael Jackson! https://gist.github.com/mjackson/5311256
