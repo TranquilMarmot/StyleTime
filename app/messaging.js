@@ -15,7 +15,8 @@ export const initMessaging = () => {
           onWeatherFetchSuccess(data);
           break;
         case commands.SETTING_CHANGED:
-          onSettingChanged(data);
+          // true here persists the settings to a file on disk
+          onSettingChanged(data, true);
           break;
         default:
           console.warn(`Unknown command: ${data.command}`);

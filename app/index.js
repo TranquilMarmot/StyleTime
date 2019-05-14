@@ -10,6 +10,7 @@ import { updateBattery } from './battery';
 import { readHeartRate } from './heartRate';
 
 import { initMessaging } from './messaging';
+import { readSettingsFromFile } from './settings';
 
 const main = document.getElementById('main');
 const sidebar1 = document.getElementById('sidebar-1');
@@ -44,4 +45,11 @@ main.onclick = () => {
   currentSidebar.style.display = 'inline';
 };
 
+// first we try to read settings from a file on disk
+// this is faster than fetching the settings from the companion app
+// and still works if bluetooth is off
+readSettingsFromFile();
+
+// initialize the companion app messaging peer socket
+// this will also request all of the settings from the companion app
 initMessaging();
