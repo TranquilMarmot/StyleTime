@@ -3,7 +3,7 @@
       <defs>
         <link rel="stylesheet" href="weather.css" />
       </defs>
-      <text class="sidebar-widget-element sidebar-widget-label" id="weatherLabel" text-length="4">--°</text>
+      <text class="sidebar-widget-element sidebar-widget-label" id="weatherLabel" text-length="5">--°</text>
 
       <!-- Note that these are not loaded sync because not all of them are shown at once! -->
       <image class="weather-icon sidebar-widget-element" id="weatherIcon_thunderstorm" href="icons/weather/thunderstorm.png" display="none" />
