@@ -3,18 +3,18 @@
       <defs>
         <link rel="stylesheet" href="weather.css" />
       </defs>
-      <text class="sidebar-widget-element sidebar-widget-label" id="weatherLabel" text-length="4">--°</text>
+      <text class="sidebar-widget-element sidebar-widget-label" id="weatherLabel" text-length="5">--°</text>
 
       <!-- Note that these are not loaded sync because not all of them are shown at once! -->
-      <image class="weather-icon sidebar-widget-element" id="weatherIcon_2xx" href="icons/weather/2xx.png" display="none" />
-      <image class="weather-icon sidebar-widget-element" id="weatherIcon_3xx" href="icons/weather/3xx.png" display="none" />
-      <image class="weather-icon sidebar-widget-element" id="weatherIcon_5xx" href="icons/weather/5xx.png" display="none" />
-      <image class="weather-icon sidebar-widget-element" id="weatherIcon_6xx" href="icons/weather/6xx.png" display="none" />
-      <image class="weather-icon sidebar-widget-element" id="weatherIcon_7xx" href="icons/weather/7xx.png" display="none" />
-      <image class="weather-icon sidebar-widget-element" id="weatherIcon_8xx" href="icons/weather/8xx.png" display="none" />
-      <image class="weather-icon sidebar-widget-element" id="weatherIcon_9xx" href="icons/weather/9xx.png" display="none" />
+      <image class="weather-icon sidebar-widget-element" id="weatherIcon_thunderstorm" href="icons/weather/thunderstorm.png" display="none" />
+      <image class="weather-icon sidebar-widget-element" id="weatherIcon_drizzle" href="icons/weather/drizzle.png" display="none" />
+      <image class="weather-icon sidebar-widget-element" id="weatherIcon_rain" href="icons/weather/rain.png" display="none" />
+      <image class="weather-icon sidebar-widget-element" id="weatherIcon_snow" href="icons/weather/snow.png" display="none" />
+      <image class="weather-icon sidebar-widget-element" id="weatherIcon_atmosphere" href="icons/weather/atmosphere.png" display="none" />
+      <image class="weather-icon sidebar-widget-element" id="weatherIcon_clouds" href="icons/weather/clouds.png" display="none" />
+      <image class="weather-icon sidebar-widget-element" id="weatherIcon_storm" href="icons/weather/storm.png" display="none" />
 
       <!-- This is our "default" icon for when weather is being fetched -->
-      <image class="weather-icon sidebar-widget-element" id="weatherIcon_800" href="icons/weather/800.png" load="sync" />
+      <image class="weather-icon sidebar-widget-element" id="weatherIcon_clear" href="icons/weather/clear.png" load="sync" />
   </svg>
 </symbol>

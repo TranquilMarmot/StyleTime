@@ -200,7 +200,7 @@ registerSettingsPage(() => (
       <Text>
         A: This is most likely because you didn&apos;t enter a valid
         &quot;Postal Code&quot; and &quot;Country Code&quot; in the settings for
-        the watchface. It&apos;s also possible that OpenWeatherMap, which is
+        the watchface. It&apos;s also possible that weatherapi, which is
         used to fetch the weather, is not responding. Sometimes the clockface
         needs to be restarted; the quickest way to do this is to swipe up to see
         your steps for the day then go back to the clockface. This should
