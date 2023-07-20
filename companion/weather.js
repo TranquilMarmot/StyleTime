@@ -6,12 +6,9 @@ const getWeatherApiUrl = (zipCode) =>
     zipCode || 98102
   }&key=${getWeatherApiKey()}`;
 
-export const queryOpenWeatherMap = async (
-  callback,
-  { zipCode, countryCode, units }
-) => {
+export const queryOpenWeatherMap = async (callback, { zipCode, units }) => {
   try {
-    const result = await fetch(getWeatherApiUrl(zipCode, countryCode, units));
+    const result = await fetch(getWeatherApiUrl(zipCode));
 
     if (!result.ok) {
       throw new Error(`Non-OK response from weatherapi of ${result.status}`);

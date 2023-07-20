@@ -25,7 +25,6 @@ let settings = {};
 
 // current weather settings; a combo of these can be used to fetch the weather
 let weatherZipCode = null;
-let weatherCountryCode = null;
 let weatherUnits = null;
 
 /**
@@ -50,18 +49,14 @@ const clearWeatherInterval = () => {
  * Note that defaults are set in the companion app if any of these are null or undefined.
  */
 const requestWeatherAndSetInterval = () => {
-  requestWeatherFromCompanion(weatherZipCode, weatherCountryCode, weatherUnits);
+  requestWeatherFromCompanion(weatherZipCode, weatherUnits);
 
   weatherIntervalId = setInterval(
     () => {
-      requestWeatherFromCompanion(
-        weatherZipCode,
-        weatherCountryCode,
-        weatherUnits
-      );
+      requestWeatherFromCompanion(weatherZipCode, weatherUnits);
     },
     30 * // minutes
-    60 * // seconds
+      60 * // seconds
       1000 // milliseconds
   );
 };
@@ -70,7 +65,7 @@ const requestWeatherAndSetInterval = () => {
  * Called when the user changes their zip code
  * @param {string} newValue JSON string with new value
  */
-const onWeatherZipCodeSettingChanged = newValue => {
+const onWeatherZipCodeSettingChanged = (newValue) => {
   // parse the new value then request another fetch from the API with it
   weatherZipCode = JSON.parse(newValue).name.replace(/"/g, '');
 
@@ -84,27 +79,10 @@ const onWeatherZipCodeSettingChanged = newValue => {
 };
 
 /**
- * Called when the user changes their country code
- * @param {string} newValue JSON string with new value
- */
-const onWeatherCountryCodeSettingChanged = newValue => {
-  // parse the new value then request another fetch from the API with it
-  weatherCountryCode = JSON.parse(newValue).name.replace(/"/g, '');
-
-  // if we already have an interval, clear it
-  clearWeatherInterval();
-
-  // if we've been given a country code, request the weather and then set an interval
-  if (weatherCountryCode && weatherCountryCode !== '') {
-    requestWeatherAndSetInterval();
-  }
-};
-
-/**
  * Called when the user changes their weather units.
  * @param {string} newValue JSON string with new value
  */
-const onWeatherUnitsSettingChanged = newValue => {
+const onWeatherUnitsSettingChanged = (newValue) => {
   // parse the new value then request another fetch from the API with it
   weatherUnits = JSON.parse(newValue).values[0].value.replace(/"/g, '');
 
@@ -132,7 +110,7 @@ const setElementIdStyleFill = (elementId, fill) => {
  * @param {string} fill Fill color to set
  */
 const setElementClassNameStyleFill = (className, fill) => {
-  document.getElementsByClassName(className).forEach(element => {
+  document.getElementsByClassName(className).forEach((element) => {
     element.style.fill = fill.replace(/"/g, ''); // eslint-disable-line no-param-reassign
   });
 };
@@ -173,9 +151,6 @@ export const onSettingChanged = ({ key, newValue }, persistToFile) => {
     case settingsNames.WEATHER_ZIP_CODE:
       onWeatherZipCodeSettingChanged(newValue);
       break;
-    case settingsNames.WEATHER_COUNTRY_CODE:
-      onWeatherCountryCodeSettingChanged(newValue);
-      break;
     case settingsNames.WEATHER_UNITS:
       onWeatherUnitsSettingChanged(newValue);
       break;
@@ -196,14 +171,13 @@ export const readSettingsFromFile = () => {
   try {
     settings = readFileSync(SETTINGS_FILE_NAME, 'json');
 
-    Object.keys(settings).forEach(key => {
+    Object.keys(settings).forEach((key) => {
       // we skip the weather-related settings since this is happening before the
       // peer socket is even set up; setting them will auto-fetch the weather.
       //
       // note that once the peer socket is setup, the app will request all settings from the companion app
       // which will then set the weather anyway
       if (
-        key !== settingsNames.WEATHER_COUNTRY_CODE &&
         key !== settingsNames.WEATHER_ZIP_CODE &&
         key !== settingsNames.WEATHER_UNITS
       ) {

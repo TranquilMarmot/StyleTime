@@ -18,8 +18,5 @@ export const SIDEBAR_WIDGET_COLOR = 'sidebarWidgetColor';
 /** Zip (postal) code to fetch weather with */
 export const WEATHER_ZIP_CODE = 'weatherZipCode';
 
-/** Country code to fetch weather with */
-export const WEATHER_COUNTRY_CODE = 'weatherCountryCode';
-
 /** Units to fetch weather with (imperial for degrees Farenheit, metric for degress Celsius) */
 export const WEATHER_UNITS = 'weatherUnits';
